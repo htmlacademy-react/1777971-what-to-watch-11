@@ -1,6 +1,6 @@
 import FilmListItem from '../../components/film-list-item/film-list-item';
 import { IPromo } from '../../index';
-import useGetFilms from '../../hooks/useGetfilms';
+import useGetFilms from '../../hooks/useGetFilms';
 
 function MainPage({promoFilm}:{promoFilm: IPromo}): JSX.Element {
   return (
