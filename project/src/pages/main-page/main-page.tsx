@@ -1,8 +1,15 @@
-import FilmListItem from '../../components/film-list-item/film-list-item';
+import FilmsList from '../../components/films-list/films-list';
+import Footer from '../../components/footer/footer';
+import Header from '../../components/header/header';
 import { IPromo } from '../../index';
-import useGetFilms from '../../hooks/useGetFilms';
+import { IFilm } from '../../mocks/films';
 
-function MainPage({promoFilm}:{promoFilm: IPromo}): JSX.Element {
+type Props = {
+  promoFilm: IPromo;
+  films: IFilm[];
+};
+
+function MainPage({promoFilm, films}:Props): JSX.Element {
   return (
     <>
       <section className='film-card'>
@@ -15,31 +22,7 @@ function MainPage({promoFilm}:{promoFilm: IPromo}): JSX.Element {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header film-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img
-                  src="img/avatar.jpg"
-                  alt="User avatar"
-                  width="63"
-                  height="63"
-                />
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
-        </header>
+        <Header/>
 
         <div className="film-card__wrap">
           <div className="film-card__info">
@@ -142,11 +125,7 @@ function MainPage({promoFilm}:{promoFilm: IPromo}): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            {useGetFilms().map((film) => (
-              <FilmListItem key={film.title} title={film.title} src={film.src} />
-            ))}
-          </div>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">
@@ -155,19 +134,7 @@ function MainPage({promoFilm}:{promoFilm: IPromo}): JSX.Element {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </>
   );

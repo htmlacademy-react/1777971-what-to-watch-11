@@ -9,28 +9,38 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import MoviePageDetails from '../../pages/movie-page-details/movie-page-details';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute } from '../../const';
+import { IFilm } from '../../mocks/films';
 
-function App({promoFilm}:{promoFilm: IPromo}): JSX.Element {
+type Props = {
+  promoFilm: IPromo;
+  films: IFilm[];
+};
+
+function App({promoFilm, films}:Props): JSX.Element {
+// function App({promoFilm}:{promoFilm: IPromo }, {films}: {films: IFilm[]}): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path={AppRoute.Root}>
-          <Route index element={<MainPage promoFilm={promoFilm}/>}/>
+          <Route index element={<MainPage promoFilm={promoFilm} films={films} />} />
           <Route path={AppRoute.Login} element={<SignInPage/>}/>
           <Route path={AppRoute.MyList} element={
-            <PrivateRoute hasAccess={false}>
-              <MyList />
+            <PrivateRoute hasAccess>
+              <MyList films={films}/>
             </PrivateRoute>
           }
           />
 
           <Route path={AppRoute.PlayerId} element={<PlayerPage/>}/>
           <Route path={AppRoute.FilmsId}>
-            <Route index element={<MoviePageDetails/>}/>
-            <Route path={AppRoute.Review} element={<AddReviewPage/>}/>
+            <Route index element={<MoviePageDetails films={films}/>}/>
+            <Route path={AppRoute.Review} element={<AddReviewPage />}/>
           </Route>
         </Route>
         <Route path='*' element={<NotFoundPage/>}/>
+
+
       </Routes>
     </ BrowserRouter>
   );
