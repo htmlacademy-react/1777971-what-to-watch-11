@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function ReviewSendForm(): JSX.Element {
   const [starRating, setStarRating] = useState(0);
-  const [reviewText, setReviewText] = useState('');
-
+  const [reviewText, setReviewText] = useState("");
+  //   const a = {tet: ''};
   return (
     <form action="#" className="add-review__form">
       <div className="rating">
         <div className="rating__stars">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star) => (
+          {Array.from({ length: 10 }, (_, i) => i + 1).map((star) => (
             <>
               <input
                 className="rating__input"
@@ -49,7 +49,7 @@ function ReviewSendForm(): JSX.Element {
             onClick={(e) => {
               e.preventDefault();
               setStarRating(0);
-              setReviewText('');
+              setReviewText("");
               return { starRating, reviewText };
             }}
           >
