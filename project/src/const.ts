@@ -3,7 +3,8 @@ export enum AppRoute {
   Login = 'login',
   MyList = 'mylist',
   PlayerId = 'player/:id',
+  Films = 'films/',
   FilmsId = 'films/:id/',
-  Review = 'review',
+  Review = 'films/:id/review',
 
 }
