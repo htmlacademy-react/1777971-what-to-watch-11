@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function ReviewSendForm(): JSX.Element {
   const [starRating, setStarRating] = useState(0);
   const [reviewText, setReviewText] = useState("");
-  //   const a = {tet: ''};
+
   return (
     <form action="#" className="add-review__form">
       <div className="rating">
