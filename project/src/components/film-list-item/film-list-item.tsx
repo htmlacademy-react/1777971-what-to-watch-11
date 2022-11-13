@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import VideoPlayer from '../video-player/video-player';
+import {useRef, useEffect, useState} from 'react';
 
 type Props = {
   name: string;
@@ -13,6 +14,20 @@ type Props = {
 };
 
 function FilmListItem({ name, previewImage, id, isHover, setIsHover, trailer }: Props) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false) ;
+
+  const handlePlayVideo = () => {
+    videoRef?.current?.play();
+    setIsPlaying(true);
+  };
+
+  useEffect(()=>{
+    const timer = setTimeout(handlePlayVideo, 1000);
+
+    return () => clearTimeout(timer);
+  }, [isHover]);
+
   return (
     <article
       className="small-film-card catalog__films-card"
@@ -24,7 +39,8 @@ function FilmListItem({ name, previewImage, id, isHover, setIsHover, trailer }: 
       }}
     >
       {
-        isHover === id ? <VideoPlayer trailer={trailer} poster={previewImage}/> : (
+        // Я ожидаю рендера видео через 1с опираясь на isPlaying, но это не срабатывает?!
+        isPlaying && isHover === id ? <VideoPlayer trailer={trailer} poster={previewImage} videoRef={videoRef} /> : (
           <>
             <div className="small-film-card__image">
               <img
