@@ -12,7 +12,7 @@ function FilmsList({ films }: Props) {
   return (
     <div className="catalog__films-list">
       {films.map((film) => (
-        <FilmListItem key={film.name} name={film.name} previewImage={film.previewImage} id={film.id} isHover={isHover} setIsHover={setIsHover} />
+        <FilmListItem key={film.name} name={film.name} previewImage={film.previewImage} id={film.id} isHover={isHover} setIsHover={setIsHover} trailer={film.trailer}/>
       ))}
     </div>
   );
