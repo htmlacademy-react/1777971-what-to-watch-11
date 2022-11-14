@@ -13,7 +13,7 @@ export const films: IFilm[] = [
   {
     id: 1,
     runTime: 99,
-    previewImage: 'img/bohemian-rhapsody.jpg',
+    previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
     trailer: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     name: 'The Grand Budapest Hotel',
     genres: ['Comedy'],
