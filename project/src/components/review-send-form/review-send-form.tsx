@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function ReviewSendForm(): JSX.Element {
   const [starRating, setStarRating] = useState(0);
-  const [reviewText, setReviewText] = useState("");
+  const [reviewText, setReviewText] = useState('');
 
   return (
     <form action="#" className="add-review__form">
@@ -49,7 +49,7 @@ function ReviewSendForm(): JSX.Element {
             onClick={(e) => {
               e.preventDefault();
               setStarRating(0);
-              setReviewText("");
+              setReviewText('');
               return { starRating, reviewText };
             }}
           >
