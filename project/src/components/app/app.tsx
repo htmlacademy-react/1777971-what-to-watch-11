@@ -17,7 +17,6 @@ type Props = {
 };
 
 function App({promoFilm, films}:Props): JSX.Element {
-// function App({promoFilm}:{promoFilm: IPromo }, {films}: {films: IFilm[]}): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
