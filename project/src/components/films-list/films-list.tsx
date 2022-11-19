@@ -1,13 +1,9 @@
 
-import { IFilm } from '../../mocks/films';
 import FilmListItem from '../film-list-item/film-list-item';
+import { useAppSelector} from '../../hooks';
 
-type Props = {
-  films: IFilm[];
-};
-
-function FilmsList({ films }: Props) {
-
+function FilmsList() {
+  const films = useAppSelector((state) => state.films);
 
   return (
     <div className="catalog__films-list">
