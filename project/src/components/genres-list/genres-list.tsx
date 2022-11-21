@@ -1,6 +1,6 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import { IFilm } from '../../mocks/films';
-import {setGenre, getFilmsList} from '../../store/action';
+import {setGenre, setFilmsList} from '../../store/action';
 
 type Props = {
   films: IFilm[];
@@ -11,17 +11,11 @@ function GenresList({ films }: Props): JSX.Element {
   const dispatch = useAppDispatch();
 
   const getUniqueGenres = ()=>{
-    const genresList = [];
-    for (let i = 0; i < films.length; i++) {
-      const filmItem = films[i];
-      for (let j = 0; j < filmItem.genres.length; j++) {
-        const genreItem = filmItem.genres[j];
-        genresList.push(genreItem);
-
-      }
-
-    }
-    return ['All genres', ...new Set(genresList)];
+    const genresList = ['All genres'];
+    films.forEach((filmItem)=>{
+      genresList.push(...filmItem.genres);
+    });
+    return[...new Set(genresList)];
   };
 
   return (
@@ -29,7 +23,7 @@ function GenresList({ films }: Props): JSX.Element {
       {getUniqueGenres().map((genreItem) => (
         <li onClick={() => {
           dispatch(setGenre(genreItem));
-          dispatch(getFilmsList());
+          dispatch(setFilmsList());
         }} key={genreItem} className={`${genreItem === genre ? 'catalog__genres-item catalog__genres-item--active' : 'catalog__genres-item catalog__genres-item'}`}
         >
           <p className="catalog__genres-link" style={{textTransform: 'capitalize'}}>
