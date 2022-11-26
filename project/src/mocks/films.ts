@@ -495,5 +495,43 @@ export const films: IFilm[] = [
       name: 'Albert Enshtein',
       date: `December ${getRandomNumber(31, 1)}, ${getRandomNumber(2022, 2016)}`
     }],
-  },
+  },{
+    id: 1,
+    rating: getRandomNumber(10, 1),
+    ratingStatus: 'Very Good',
+    ratings: getRandomNumber(1000, 1),
+    firstDescription:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, culpa! Beatae explicabo nesciunt quidem praesentium voluptatum corrupti eius, natus, consequatur molestias eveniet adipisci voluptas ducimus iste libero repudiandae est ab!',
+    secondDescription:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quae expedita tenetur debitis doloremque? Dolorum ullam praesentium saepe quae veritatis facere, ad quos quo ab, quaerat ea commodi necessitatibus debitis, eveniet ducimus distinctio autem? Est quidem quod quisquam quas eius, nihil beatae voluptatem suscipit ex, et, architecto perferendis molestiae adipisci?',
+    runTime: 99,
+    previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
+    trailer:
+      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
+    name: 'The Grand Budapest Hotel',
+    genres: ['comedy'],
+    date: 2014,
+    director: 'Wes Anderson',
+    starring: [
+      'Bill Murray',
+      'Edward Norton',
+      'Jude Law',
+      'Willem Dafoe',
+      'Saoirse Ronan',
+      'Tony Revoloru',
+      'Tilda Swinton',
+      'Tom Wilkinson',
+      'Owen Wilkinson',
+      'Adrien Brody',
+      'Ralph Fiennes',
+      'Jeff Goldblum',
+    ],
+    reviews: [{
+      id: getRandomNumber(1000, 1),
+      text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, culpa! Beatae explicabo nesciunt quidem praesentium voluptatum corrupti eius, natus, consequatur molestias eveniet adipisci voluptas ducimus iste libero repudiandae est ab!',
+      rating: getRandomNumber(10, 1),
+      name: 'Albert Enshtein',
+      date: `March ${getRandomNumber(31, 1)}, ${getRandomNumber(2022, 2016)}`
+    }],
+  }
 ];

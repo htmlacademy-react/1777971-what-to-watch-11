@@ -2,6 +2,7 @@ import FilmsList from '../../components/films-list/films-list';
 import Footer from '../../components/footer/footer';
 import GenresList from '../../components/genres-list/genres-list';
 import Header from '../../components/header/header';
+import ShowMore from '../../components/show-more/show-more';
 import { IPromo } from '../../index';
 import { IFilm } from '../../mocks/films';
 
@@ -78,11 +79,7 @@ function MainPage({promoFilm, films}:Props): JSX.Element {
 
           <FilmsList />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">
-              Show more
-            </button>
-          </div>
+          <ShowMore/>
         </section>
 
         <Footer/>

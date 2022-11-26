@@ -1,10 +1,11 @@
-import {createReducer} from '@reduxjs/toolkit';
-import {setGenre, setFilmsList} from './action';
-import {films, IFilm} from '../mocks/films';
+import { createReducer } from '@reduxjs/toolkit';
+import { setGenre, setFilmsList, setNextPage, setStartPage } from './action';
+import { films, IFilm } from '../mocks/films';
 
-const initialState: {genre: string; films: IFilm[]} = {
+const initialState: { genre: string; films: IFilm[]; page: number } = {
   genre: 'All genres',
   films: [],
+  page: 1
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -15,8 +16,13 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setFilmsList, (state) => {
       state.films = films;
-
+    })
+    .addCase(setNextPage, (state) => {
+      state.page += 1;
+    })
+    .addCase(setStartPage, (state) => {
+      state.page = 1;
     });
 });
 
-export {reducer};
+export { reducer };
