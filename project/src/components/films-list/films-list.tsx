@@ -12,8 +12,10 @@ function FilmsList() {
   const dispatch = useAppDispatch();
 
   const filterFilmsListForGenre = ()=>{
-    if(currentGenre === 'All genres') {return films.slice(8 * page - 8, 8 * page);}
-    const filteredFilms: IFilm[] = [];
+    let filteredFilms: IFilm[] = [];
+    if(currentGenre === 'All genres') {
+      filteredFilms = [...films];
+      return filteredFilms.slice(0, 8 * page);}
 
     for (let j = 0; j < films.length; j++) {
       const film = films[j];
@@ -25,7 +27,7 @@ function FilmsList() {
       });
     }
     // filteredFilms.slice(-2);
-    const inOnePage = filteredFilms.slice(1 * page,3 * page);
+    const inOnePage = filteredFilms.slice(0, 8 * page);
     return inOnePage;
   };
 
