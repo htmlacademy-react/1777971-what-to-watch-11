@@ -1,6 +1,6 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import { IFilm } from '../../mocks/films';
-import {setGenre, setFilmsList, setStartPage} from '../../store/action';
+import {setGenre, setStartPage} from '../../store/action';
 
 type Props = {
   films: IFilm[];
@@ -23,7 +23,6 @@ function GenresList({ films }: Props): JSX.Element {
       {getUniqueGenres().map((genreItem) => (
         <li onClick={() => {
           dispatch(setGenre(genreItem));
-          dispatch(setFilmsList());
           dispatch(setStartPage());
         }} key={genreItem} className={`${genreItem === genre ? 'catalog__genres-item catalog__genres-item--active' : 'catalog__genres-item catalog__genres-item'}`}
         >
