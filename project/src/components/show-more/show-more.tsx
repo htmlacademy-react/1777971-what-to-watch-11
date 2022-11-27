@@ -4,10 +4,11 @@ import { setNextPage } from '../../store/action';
 function ShowMore(): JSX.Element {
   const dispatch = useAppDispatch();
   const page = useAppSelector((state) => state.page);
-  const films = useAppSelector((state) => state.films);
+  const currentCountFilms = useAppSelector((state) => state.currentCountFilms);
+
   return (
     <div className="catalog__more">
-      {films.length / 8 > page ? (
+      {currentCountFilms > 8 * page ? (
         <button
           className="catalog__button"
           type="button"

@@ -15,8 +15,10 @@ function GenresList({ films }: Props): JSX.Element {
     films.forEach((filmItem)=>{
       genresList.push(...filmItem.genres);
     });
+
     return [...new Set(genresList)];
   };
+
 
   return (
     <ul className="catalog__genres-list">

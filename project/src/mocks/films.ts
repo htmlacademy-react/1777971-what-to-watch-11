@@ -508,7 +508,7 @@ export const films: IFilm[] = [
     previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
     trailer:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-    name: 'The Grand Budapest Hotel',
+    name: `The Grand Budapest Hotel ${getRandomNumber(10, 1)}`,
     genres: ['comedy'],
     date: 2014,
     director: 'Wes Anderson',

@@ -3,7 +3,7 @@ import FilmListItem from '../film-list-item/film-list-item';
 import { useAppDispatch, useAppSelector} from '../../hooks';
 import { IFilm } from '../../mocks/films';
 import { useEffect } from 'react';
-import { setFilmsList, setStartPage } from '../../store/action';
+import { setFilmsList, setFilmsListLength, setStartPage } from '../../store/action';
 
 function FilmsList() {
   const films = useAppSelector((state) => state.films);
@@ -15,6 +15,7 @@ function FilmsList() {
     let filteredFilms: IFilm[] = [];
     if(currentGenre === 'All genres') {
       filteredFilms = [...films];
+      dispatch(setFilmsListLength(filteredFilms.length));
       return filteredFilms.slice(0, 8 * page);}
 
     for (let j = 0; j < films.length; j++) {
@@ -28,6 +29,7 @@ function FilmsList() {
     }
     // filteredFilms.slice(-2);
     const inOnePage = filteredFilms.slice(0, 8 * page);
+    dispatch(setFilmsListLength(filteredFilms.length));
     return inOnePage;
   };
 
