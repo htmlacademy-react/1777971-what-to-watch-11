@@ -3,7 +3,7 @@ import { setGenre, setFilmsList, setNextPage, setStartPage, setFilmsListLength }
 import { films, IFilm } from '../mocks/films';
 
 const initialState: { genre: string; films: IFilm[]; page: number;currentCountFilms: number } = {
-  genre: '',
+  genre: 'All genres',
   films: [],
   currentCountFilms: 0,
   page: 1

@@ -11,11 +11,13 @@ function FilmsList() {
   const currentGenre = useAppSelector((state) => state.genre);
   const dispatch = useAppDispatch();
 
+
   const filterFilmsListForGenre = ()=>{
     let filteredFilms: IFilm[] = [];
+
     if(currentGenre === 'All genres') {
       filteredFilms = [...films];
-      dispatch(setFilmsListLength(filteredFilms.length));
+
       return filteredFilms.slice(0, 8 * page);}
 
     for (let j = 0; j < films.length; j++) {
@@ -27,7 +29,6 @@ function FilmsList() {
         }
       });
     }
-    // filteredFilms.slice(-2);
     const inOnePage = filteredFilms.slice(0, 8 * page);
     dispatch(setFilmsListLength(filteredFilms.length));
     return inOnePage;
@@ -36,6 +37,7 @@ function FilmsList() {
   useEffect(()=>{
     dispatch(setFilmsList());
     dispatch(setStartPage());
+    dispatch(setFilmsListLength(films.length));
   }, []);
 
   return (
